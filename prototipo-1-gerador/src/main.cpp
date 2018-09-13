@@ -30,9 +30,23 @@ int main ( int argc, char **argv )
     //         base[i][j] = '0';// prenchendo '0' que simboliza a agua
     //     }
     // }
-
-    gt::geraTab();
-    gt::printTab();
+    std::vector < std::vector <char> > a;
+    for ( unsigned short int i(1); i < gt::n_lines; ++i)
+    {
+        std::vector <char> temp;
+        for ( unsigned short int j(1); j < gt::n_cols; ++j)
+        {
+            temp.push_back('0');
+            //a[i][j] = '0';// prenchendo '0' que simboliza a agua
+        }
+        for ( unsigned short int j(1); j < gt::n_cols; ++j)
+        {
+            a[i].push_back(temp[j]);
+            //a[i][j] = '0';// prenchendo '0' que simboliza a agua
+        }
+    }
+    gt::geraTab(a);
+    //gt::printTab(a);
 
     return 0;
 }

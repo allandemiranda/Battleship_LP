@@ -35,15 +35,15 @@ namespace gt // gt = gerador de tabuleiros
     // void desenha converteTabuleiroParaConsole()
 
     /// esqueleto dos procedimentos iniciais;
-
+    std::vector< std::vector<char> > a;
     // escolhe entre barcos ou água, sua posição e chama
     // os procedimentos referentes ao barco escolhido
     char escolhasRd();
     /// gera o tabuleiro na matrix
-    void geraTab();
+    void geraTab(std::vector < std::vector <char> > a);
 
     // procedimentos dos barcos
-    void printTab();
+    void printTab(std::vector < std::vector <char> > a);
 }
 
 #endif

@@ -7,14 +7,14 @@ std::ofstream writer( "../tabuleiros/tabuleiro.txt" );
 
 /// tentativa de usar vector de vector ou a matrix de char estilo c
 //const int l( (const int)(gt::n_lines+1) ), c( (const int)(gt::n_cols+1) );
-unsigned short l, c;
-void gt::getDim( unsigned short line, unsigned short col )
+
+/*void gt::getDim( unsigned short line, unsigned short col )
 {
     l = line;
     c = col;
-}
-char a[l+1][c+1];// l = linhas, c = colunas
-//std::vector< std::vector<char> > a;
+}*/
+//char a[10][10];// l = linhas, c = colunas
+/*
 for( auto i(0); i < gt::n_lines; ++i )
 {
     for( auto j(0); j < gt::n_cols; ++j )
@@ -22,6 +22,7 @@ for( auto i(0); i < gt::n_lines; ++i )
         a[i][j] = '0';// prenchendo ' ' que simboliza vazio
     }
 }
+*/
 /// fim da tentativa
 
 
@@ -34,18 +35,18 @@ for( auto i(0); i < gt::n_lines; ++i )
 //     a[i][0] = '0';
 // }
 
-void gt::geraTab()
+void gt::geraTab(std::vector < std::vector <char> > a)
 {   
     /// comeca em 1 pois a matrix tera uma linha e uma coluna a mais para facilitar a verificação a matrix sera a[n_linhas+1][n_colunas+1];
     /// o algoritmo ta correto o que falta é resolver o problema da matrix de char
-    for( auto i(1); i < gt::n_lines; ++i )
+    unsigned short l = gt::n_lines, c = gt::n_cols;
+    for( unsigned short int i(1); i < gt::n_lines; ++i )
     {
-        for( auto j(1); j < gt::n_cols; ++j )
+        for( unsigned short int j(1); j < gt::n_cols; ++j )
         {
             if(gt::escolhasRd() == '0' && a[i][j] == '0' || a[i-1][j] == '0')// agua
             {
                 ++j;
-                continue;
             } 
             else if(gt::escolhasRd() == '1')// submarine
             {
@@ -168,11 +169,11 @@ char gt::escolhasRd()
     }
 }
 
-void gt::printTab()
+void gt::printTab(std::vector < std::vector <char> > a)
 {
-    for( auto i(1u); i < gt::n_lines; ++i )
+    for( unsigned short int i(1); i < gt::n_lines; ++i )
     {
-        for( auto j(1u); j < gt::n_cols; ++j )
+        for( unsigned short int j(1); j < gt::n_cols; ++j )
         {
             std::cout << a[i][j];
         }
