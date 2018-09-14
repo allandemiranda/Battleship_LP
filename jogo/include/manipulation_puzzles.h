@@ -58,6 +58,7 @@ std::vector <char> game_board_response(int const upper_rand, int const size){
  * @param dificult How many pixels is to open
  */
 std::vector < std::vector <char> > generator_board_user(std::vector <char> board_final, int const size, int const dificult){
+  
     std::vector < std::vector <char> > board_user; /* < Vector to create the puzzels USER */
     
     // Preparing pixel that will be visible
@@ -70,6 +71,7 @@ std::vector < std::vector <char> > generator_board_user(std::vector <char> board
     // Preparing the pixel puzzles User
     int pixel(0);
     for(int i(0); i<size; ++i){
+        std::vector <char> temp;
         for(int j(0); j<size; ++j, ++pixel){
             bool pixel_to_open = false; // if the generated pixel is the need opened
             for(int k(0); k<dificult; ++k){
@@ -79,20 +81,14 @@ std::vector < std::vector <char> > generator_board_user(std::vector <char> board
                 }
             }
             if(pixel_to_open){
-                board_user[i].push_back(board_final[pixel]);
+                temp.push_back(board_final[pixel]);
             } else {
-                board_user[i].push_back('0');
+                temp.push_back('0');
             }
         }
+        board_user.push_back(temp);
     }
 
-    for(int i(0); i<board_user.size(); ++i){
-        for(int j(0); j<board_user[i].size(); ++j){
-            std::cout << board_user[i][j] << " ";
-        }
-        std::cout << std:: endl;
-    }
-    std::cout << std::endl;
 
     return board_user;
 }

@@ -41,7 +41,7 @@ int main(void)
     std::vector < std::vector <char> > puzzles_user = generator_board_user(final_board, size_board, DIFICULT_PIXELS);
 
     // Print
-    // dashboard_user_print(final_board, puzzles_user, QUANTITY_OF_SUBMARINES, QUANTITY_OF_DESTROYERS, QUANTITY_OF_CRUISERS, QUANTITY_OF_BATTLESHIP);
+     dashboard_user_print(final_board, puzzles_user, QUANTITY_OF_SUBMARINES, QUANTITY_OF_DESTROYERS, QUANTITY_OF_CRUISERS, QUANTITY_OF_BATTLESHIP);
 
 
 
