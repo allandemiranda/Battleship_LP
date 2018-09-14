@@ -36,3 +36,19 @@ int welcome(int const upper_limit, int const low_limit){
     }
     return size;
 }
+
+void dashboard_user_print(std::vector <std::vector <char>> board, int const ship_one, int const ship_two, int const ship_three, int const ship_four){
+    // Print ships left
+    std::cout << "Do you have to add: " << std::endl;
+    std::cout << ship_one << " submarines (one square in size)" << std::endl;
+    std::cout << ship_two << " destroyers (two squares long)" << std::endl;
+    std::cout << ship_three << " cruisers (three squares long)" << std::endl;
+    std::cout << ship_four << " battleship (four squares long)" << std::endl;
+    //Print the Puzzles
+    for(int i(0); i<board.size(); ++i){ // Line
+        for(int j(0); j<board[i].size(); ++j){ // Column
+
+        }
+    }
+
+}

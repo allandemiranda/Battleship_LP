@@ -18,6 +18,7 @@
 // Include
 #include "../include/entertainment.h"
 #include "../include/manipulation_puzzles.h"
+#include "../include/user_manipulation.h"
 
 /**
  * @brief The game
@@ -37,7 +38,7 @@ int main(void)
     std::vector < std::vector <char> > puzzles_user;
     generator_board_user(final_board, puzzles_user, size_board, DIFICULT_PIXELS);
 
-    
+
 
 
 
