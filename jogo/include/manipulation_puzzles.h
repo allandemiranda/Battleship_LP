@@ -88,3 +88,25 @@ std::vector < std::vector <char> > generator_board_user(std::vector <char> board
     }
     return board_user;
 }
+
+/**
+ * @brief Function to check if it's the same as the original
+ * 
+ * @param user User puzzles
+ * @param puzzles Original puzzles
+ * @return true Difference found
+ * @return false Not difference found
+ */
+bool cheking_answer(std::vector<std::vector<char>> user, std::vector<char> puzzles){
+    int pixel(0); /* < Pixel from puzzles orientation */
+    for(int i(0); i<user.size(); ++i){ // Line
+        for(int j(0); j<user[i].size(); ++j, ++pixel){ // Column
+            if(user[i][j] != puzzles[pixel]){
+                // Difference found
+                return false;
+            }
+        }
+    }
+    // Not difference found
+    return true;
+}

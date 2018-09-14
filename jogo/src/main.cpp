@@ -46,16 +46,22 @@ int main(void)
     int cruisers_quantity = QUANTITY_OF_CRUISERS; // $code 2
     int battleship_quantity = QUANTITY_OF_BATTLESHIP; // $code 1
 
-    // WHILE(TRUE){}
+    // Playing
     while(true){
         // Print puzzles
         dashboard_user_print(final_board, puzzles_user, submarines_quantity, destroyers_quantity, cruisers_quantity, battleship_quantity);
         // Start the parameters for coordinates
         int coordinates[4];
         coordinates_input_print(&coordinates[0]);
+        // Check if ships are available
+        if(!ships_available(coordinates[0],submarines_quantity, destroyers_quantity, cruisers_quantity, battleship_quantity)){
+            // Skip drawing the puzzles
+            continue;
+        }
+        // Draw the ship
         int code_erro = put_new_boat(puzzles_user, size_board, coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
         if(code_erro == 0){
-            // Remove the boat added
+            // Remove the ship added
             if(coordinates[0] == 1){
                 battleship_quantity--;                
             } 
@@ -83,8 +89,24 @@ int main(void)
         }        
     }
 
-
-    std::cout <<  "Ao preencher todo campo retornar se acertou ou não" << std::endl;
+    // Check if it's the same as the original
+    if(cheking_answer(puzzles_user, final_board)){
+        std::cout << std::endl;
+        std::cout << "-----------" << std::endl;
+        std::cout << std::endl;
+        std::cout <<  "Congratulations!" << std::endl;
+        std::cout <<  "You won the game!" << std::endl;
+        std::cout <<  "bye" << std::endl;
+        std::cout << std::endl;
+    } else  {
+        std::cout << std::endl;
+        std::cout << "-----------" << std::endl;
+        std::cout << std::endl;
+        std::cout <<  "Sorry!" << std::endl;
+        std::cout <<  "You lost the game!" << std::endl;
+        std::cout <<  "bye" << std::endl;
+        std::cout << std::endl;
+    }  
 
     return EXIT_SUCCESS;
 }

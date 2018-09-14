@@ -60,107 +60,112 @@ int put_new_boat(std::vector<std::vector <char>> & puzzle, int const size, int c
             } else {
                 return 2; // Erro code 2: Have something in the way
             }
-        }
-        // To the Cruisers (three squares long) -> $code 2
-        if(ship == 2){
-            if(puzzle[position_line][position_column] == (' ')){
-                if(position_z == 1){ // If position H
-                    // Check for barriers               
-                    for(int i(0); i<3; ++i){
-                        if((position_line + i)>size){
-                            return 1; // Erro code 1: The limit gone
-                        }
-                        if(puzzle[position_line + i][position_column] != ' '){
-                            return 1; // Erro code 2: Have something in the way
-                        }
-                    }                
-                    // If everything is ok
-                    puzzle[position_line][position_column] = '^';
-                    puzzle[position_line + 1][position_column] = '+';
-                    puzzle[position_line + 2][position_column] = 'v';
-                }
-                if(position_z == 2){ // If position V
-                    for(int i(0); i<3; ++i){
-                        if((position_column + i)>size){
-                            return 1; // Erro code 1: The limit gone
-                        }
-                        if(puzzle[position_line][position_column + i] != ' '){
-                            return 1; // Erro code 2: Have somethin in the way
-                        }
+        } else {
+            // To the Cruisers (three squares long) -> $code 2
+            if(ship == 2){
+                if(puzzle[position_line][position_column] == (' ')){
+                    if(position_z == 1){ // If position H
+                        // Check for barriers               
+                        for(int i(0); i<3; ++i){
+                            if((position_line + i)>size){
+                                return 1; // Erro code 1: The limit gone
+                            }
+                            if(puzzle[position_line + i][position_column] != ' '){
+                                return 1; // Erro code 2: Have something in the way
+                            }
+                        }                
+                        // If everything is ok
+                        puzzle[position_line][position_column] = '^';
+                        puzzle[position_line + 1][position_column] = '+';
+                        puzzle[position_line + 2][position_column] = 'v';
                     }
-                    // If everything is ok
-                    puzzle[position_line][position_column] = '<';
-                    puzzle[position_line][position_column + 1] = '+';
-                    puzzle[position_line][position_column + 2] = '>';
+                    if(position_z == 2){ // If position V
+                        for(int i(0); i<3; ++i){
+                            if((position_column + i)>size){
+                                return 1; // Erro code 1: The limit gone
+                            }
+                            if(puzzle[position_line][position_column + i] != ' '){
+                                return 1; // Erro code 2: Have somethin in the way
+                            }
+                        }
+                        // If everything is ok
+                        puzzle[position_line][position_column] = '<';
+                        puzzle[position_line][position_column + 1] = '+';
+                        puzzle[position_line][position_column + 2] = '>';
+                    }
+                } else {
+                    return 2; // Erro code 2: Have something in the way
                 }
             } else {
-                return 2; // Erro code 2: Have something in the way
-            }
-        }
-        // To the Destroyers (two squares long) -> $code 3
-        if(ship == 3){
-            if(puzzle[position_line][position_column] == (' ')){
-                if(position_z == 1){ // If position H
-                    // Check for barriers               
-                    for(int i(0); i<2; ++i){
-                        if((position_line + i)>size){
-                            return 1; // Erro code 1: The limit gone
+                // To the Destroyers (two squares long) -> $code 3
+                if(ship == 3){
+                    if(puzzle[position_line][position_column] == (' ')){
+                        if(position_z == 1){ // If position H
+                            // Check for barriers               
+                            for(int i(0); i<2; ++i){
+                                if((position_line + i)>size){
+                                    return 1; // Erro code 1: The limit gone
+                                }
+                                if(puzzle[position_line + i][position_column] != ' '){
+                                    return 1; // Erro code 2: Have something in the way
+                                }
+                            }                
+                            // If everything is ok
+                            puzzle[position_line][position_column] = '^';
+                            puzzle[position_line + 1][position_column] = 'v';
                         }
-                        if(puzzle[position_line + i][position_column] != ' '){
-                            return 1; // Erro code 2: Have something in the way
+                        if(position_z == 2){ // If position V
+                            for(int i(0); i<2; ++i){
+                                if((position_column + i)>size){
+                                    return 1; // Erro code 1: The limit gone
+                                }
+                                if(puzzle[position_line][position_column + i] != ' '){
+                                    return 1; // Erro code 2: Have somethin in the way
+                                }
+                            }
+                            // If everything is ok
+                            puzzle[position_line][position_column] = '<';
+                            puzzle[position_line][position_column + 1] = '>';
                         }
-                    }                
-                    // If everything is ok
-                    puzzle[position_line][position_column] = '^';
-                    puzzle[position_line + 1][position_column] = 'v';
-                }
-                if(position_z == 2){ // If position V
-                    for(int i(0); i<2; ++i){
-                        if((position_column + i)>size){
-                            return 1; // Erro code 1: The limit gone
-                        }
-                        if(puzzle[position_line][position_column + i] != ' '){
-                            return 1; // Erro code 2: Have somethin in the way
-                        }
+                    } else {
+                        return 2; // Erro code 2: Have something in the way
                     }
-                    // If everything is ok
-                    puzzle[position_line][position_column] = '<';
-                    puzzle[position_line][position_column + 1] = '>';
-                }
-            } else {
-                return 2; // Erro code 2: Have something in the way
-            }
-        }
-        // Submarines (one square in size) -> $code 4
-        if(ship == 4){
-            if(puzzle[position_line][position_column] == (' ')){
-                if(position_z == 1){ // If position H
-                    // Check for barriers               
-                    for(int i(0); i<1; ++i){
-                        if((position_line + i)>size){
-                            return 1; // Erro code 1: The limit gone
+                } else {
+                    // Submarines (one square in size) -> $code 4
+                    if(ship == 4){
+                        if(puzzle[position_line][position_column] == (' ')){
+                            if(position_z == 1){ // If position H
+                                // Check for barriers               
+                                for(int i(0); i<1; ++i){
+                                    if((position_line + i)>size){
+                                        return 1; // Erro code 1: The limit gone
+                                    }
+                                    if(puzzle[position_line + i][position_column] != ' '){
+                                        return 1; // Erro code 2: Have something in the way
+                                    }
+                                }                
+                                // If everything is ok
+                                puzzle[position_line][position_column] = '+';
+                            }
+                            if(position_z == 2){ // If position V
+                                for(int i(0); i<1; ++i){
+                                    if((position_column + i)>size){
+                                        return 1; // Erro code 1: The limit gone
+                                    }
+                                    if(puzzle[position_line][position_column + i] != ' '){
+                                        return 1; // Erro code 2: Have somethin in the way
+                                    }
+                                }
+                                // If everything is ok
+                                puzzle[position_line][position_column] = '+';
+                            }
+                        } else {
+                            return 2; // Erro code 2: Have something in the way
                         }
-                        if(puzzle[position_line + i][position_column] != ' '){
-                            return 1; // Erro code 2: Have something in the way
-                        }
-                    }                
-                    // If everything is ok
-                    puzzle[position_line][position_column] = '+';
-                }
-                if(position_z == 2){ // If position V
-                    for(int i(0); i<1; ++i){
-                        if((position_column + i)>size){
-                            return 1; // Erro code 1: The limit gone
-                        }
-                        if(puzzle[position_line][position_column + i] != ' '){
-                            return 1; // Erro code 2: Have somethin in the way
-                        }
+                    } else {
+                        return 2; // Barco não encontrado
                     }
-                    // If everything is ok
-                    puzzle[position_line][position_column] = '+';
                 }
-            } else {
-                return 2; // Erro code 2: Have something in the way
             }
         }
     } else {

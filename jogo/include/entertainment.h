@@ -135,3 +135,34 @@ void coordinates_input_print(int *coordinates_code){
     std::cout << "Type in the Horizontal (code = 1) or Vertical (code = 2): " << std::endl;
     std::cin >> coordinates_code[3];
 }
+
+/**
+ * @brief Function to check if ships are available
+ * 
+ * @param ship_code Ship code
+ * @param ship_one Quantity battleship
+ * @param ship_two Quantity cruisers
+ * @param ship_three Quantity destroyers
+ * @param ship_four Quantity submarines
+ * @return true It's ok
+ * @return false No longer available this ship
+ */
+bool ships_available(int const ship_code, int const ship_four, int const ship_three, int const ship_two, int const ship_one){
+    if((ship_one == 0) and (ship_code == 1)){
+        std::cout << "No longer available this ship!" << std::endl;
+        return false;
+    }
+    if((ship_two == 0) and (ship_code == 2)){
+        std::cout << "No longer available this ship!" << std::endl;
+        return false;
+    }
+    if((ship_three == 0) and (ship_code == 3)){
+        std::cout << "No longer available this ship!" << std::endl;
+        return false;
+    }
+    if((ship_four == 0) and (ship_code == 4)){
+        std::cout << "No longer available this ship!" << std::endl;
+        return false;
+    }
+    return true;
+}
