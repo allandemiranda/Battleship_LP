@@ -37,7 +37,17 @@ int welcome(int const upper_limit, int const low_limit){
     return size;
 }
 
-void dashboard_user_print(std::vector <std::vector <char>> board, int const ship_one, int const ship_two, int const ship_three, int const ship_four){
+/**
+ * @brief Function to print the status of the Puzzles
+ * 
+ * @param board_final The Vector with final puzzles
+ * @param board_user The Puzzles User
+ * @param ship_one submarines (one square in size)
+ * @param ship_two destroyers (two squares long)
+ * @param ship_three cruisers (three squares long)
+ * @param ship_four battleship (four squares long)
+ */
+void dashboard_user_print(std::vector <char> board_final, std::vector <std::vector <char>> board_user, int const ship_one, int const ship_two, int const ship_three, int const ship_four){
     // Print ships left
     std::cout << "Do you have to add: " << std::endl;
     std::cout << ship_one << " submarines (one square in size)" << std::endl;
@@ -45,10 +55,27 @@ void dashboard_user_print(std::vector <std::vector <char>> board, int const ship
     std::cout << ship_three << " cruisers (three squares long)" << std::endl;
     std::cout << ship_four << " battleship (four squares long)" << std::endl;
     //Print the Puzzles
-    for(int i(0); i<board.size(); ++i){ // Line
-        for(int j(0); j<board[i].size(); ++j){ // Column
-
+    int pixel(0); /* < Pixel from board_final orientation */
+    for(int i(0); i<board_user.size(); ++i){ // Line
+        int number_ship(0); /* < Number of ship os the line */
+        for(int j(0); j<board_user[i].size(); ++j, ++pixel){ // Column
+            std::cout << board_user[i][j] << " ";
+            if(board_final[pixel] != '0'){
+                ++number_ship;
+            }
         }
+        std::cout << "| " << number_ship << std::endl;
     }
-
+    std::cout << "--------------------" << std::endl;
+    // Need a clumn number_ship
+    for(int i(0); i<board_user.size(); ++i){
+        int number_ship(0); /* < Number of ship os the Column */
+        for(int j(0); j<board_user.size(); ++j){
+            if(board_final[(j * board_user.size()) + i] != '0'){
+                ++number_ship;
+            }
+        }
+        std::cout << number_ship << " ";
+    }
+    std::cout << std::endl;
 }
