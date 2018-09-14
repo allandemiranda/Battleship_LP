@@ -40,10 +40,10 @@ namespace gt // gt = gerador de tabuleiros
     // os procedimentos referentes ao barco escolhido
     char escolhasRd();
     /// gera o tabuleiro na matrix
-    void geraTab(std::vector < std::vector <char> > a);
+    void geraTab(std::vector < std::vector <char> > &a);
 
     // procedimentos dos barcos
-    void printTab(std::vector < std::vector <char> > a);
+    void printTab(const std::vector < std::vector <char> > &a);
 }
 
 #endif

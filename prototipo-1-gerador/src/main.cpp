@@ -18,8 +18,8 @@ int main ( int argc, char **argv )
     srand( time(NULL) ); 
     /// armazenando e convertendo os parametros argv para int
     gt::n_puzzles = atoi(argv[1]); /// número de tabuleiros
-    gt::n_lines = argv[2] != NULL ? atoi(argv[2]) : 7;/// linhas
-    gt::n_cols = argv[3] != NULL ? atoi(argv[3]) : 7; /// colunas
+    gt::n_lines = argv[2] != NULL ? atoi(argv[2]) : gt::n_lines;/// linhas
+    gt::n_cols = argv[3] != NULL ? atoi(argv[3]) : gt::n_cols; /// colunas
 
     //char base[gt::n_lines][gt::n_cols];
     // std::vector< std::vector<char> > base;
@@ -31,22 +31,32 @@ int main ( int argc, char **argv )
     //     }
     // }
     std::vector < std::vector <char> > a;
-    for ( unsigned short int i(1); i < gt::n_lines; ++i)
+    //std::vector <char> temp;
+    for ( unsigned short int i(0); i < gt::n_lines+1; ++i)
     {
         std::vector <char> temp;
-        for ( unsigned short int j(1); j < gt::n_cols; ++j)
+        for ( unsigned short int j(0); j < gt::n_cols+1; ++j)
         {
             temp.push_back('0');
             //a[i][j] = '0';// prenchendo '0' que simboliza a agua
         }
-        for ( unsigned short int j(1); j < gt::n_cols; ++j)
+        for ( unsigned short int j(0); j < gt::n_cols+1; ++j)
         {
-            a[i].push_back(temp[j]);
+            //a[i].push_back(temp[j]);
+            a.push_back(temp);
             //a[i][j] = '0';// prenchendo '0' que simboliza a agua
         }
     }
+    // unsigned short i(0);
+    // while( i <= gt::n_puzzles )
+    // {
+    //    gt::geraTab(a);
+    //    gt::printTab(a);
+    //    std::cout.put('\n'); 
+    //    ++i;
+    // }
     gt::geraTab(a);
-    //gt::printTab(a);
+    gt::printTab(a);
 
     return 0;
 }
