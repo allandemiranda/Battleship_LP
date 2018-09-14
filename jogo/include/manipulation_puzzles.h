@@ -19,11 +19,12 @@
 /**
  * @brief Function for picking up a game board valid
  * 
- * @param board Game board
  * @param upper_rand Define parameter to upper randon
  * @param size Side size from game board
+ * @return std::vector <char> Game board
  */
-void game_board_response(std::vector <char> board, int const upper_rand, int const size){
+std::vector <char> game_board_response(int const upper_rand, int const size){
+    std::vector <char> board; /* < Vector to create the puzzels */
     //std::srand(std::time(nullptr)); // Use current time as seed for random generator
     int random_number = std::rand()/((RAND_MAX + 1u)/(upper_rand - 1)); /* < Random number to select the puzzles */
     // Add the board to the vector
@@ -45,6 +46,7 @@ void game_board_response(std::vector <char> board, int const upper_rand, int con
     for(int i(0); i<(size * size); ++i){
             board.push_back(temp[element + i]);
     }
+    return board;
 }
 
 /**
@@ -55,7 +57,9 @@ void game_board_response(std::vector <char> board, int const upper_rand, int con
  * @param size Side * Side of Puzzles
  * @param dificult How many pixels is to open
  */
-void generator_board_user(std::vector <char> board_final, std::vector < std::vector <char> > board_user, int const size, int const dificult){
+std::vector < std::vector <char> > generator_board_user(std::vector <char> board_final, int const size, int const dificult){
+    std::vector < std::vector <char> > board_user; /* < Vector to create the puzzels USER */
+    
     // Preparing pixel that will be visible
     int pixel_open[dificult];
     for(int i(0); i<dificult; ++i){
@@ -81,4 +85,14 @@ void generator_board_user(std::vector <char> board_final, std::vector < std::vec
             }
         }
     }
+
+    for(int i(0); i<board_user.size(); ++i){
+        for(int j(0); j<board_user[i].size(); ++j){
+            std::cout << board_user[i][j] << " ";
+        }
+        std::cout << std:: endl;
+    }
+    std::cout << std::endl;
+
+    return board_user;
 }

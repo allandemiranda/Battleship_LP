@@ -35,15 +35,13 @@ int main(void)
     int size_board = welcome(UPPER_LIMIT_SIDE, LOW_LIMIT_SIDE); /* < Size of game board side */
 
     // Select Puzzles and start the game
-    std::vector <char> final_board;
-    game_board_response(final_board, MAX_OF_PUZZLES_GENERATED, size_board);
+    std::vector <char> final_board = game_board_response(MAX_OF_PUZZLES_GENERATED, size_board);
 
     // The game Puzzles to the User
-    std::vector < std::vector <char> > puzzles_user;
-    generator_board_user(final_board, puzzles_user, size_board, DIFICULT_PIXELS);
+    std::vector < std::vector <char> > puzzles_user = generator_board_user(final_board, size_board, DIFICULT_PIXELS);
 
     // Print
-    dashboard_user_print(final_board, puzzles_user, QUANTITY_OF_SUBMARINES, QUANTITY_OF_DESTROYERS, QUANTITY_OF_CRUISERS, QUANTITY_OF_BATTLESHIP);
+    // dashboard_user_print(final_board, puzzles_user, QUANTITY_OF_SUBMARINES, QUANTITY_OF_DESTROYERS, QUANTITY_OF_CRUISERS, QUANTITY_OF_BATTLESHIP);
 
 
 
