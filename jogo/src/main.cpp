@@ -16,6 +16,7 @@
 
 // Include
 #include "../include/entertainment.h"
+#include "../include/manipulation_puzzles.h"
 
 /**
  * @brief 
@@ -33,7 +34,13 @@ int main(int argc, char const *argv[])
     std::vector < std::vector <char> > final_board;
     game_board_response(final_board, MAX_OF_PUZZLES_GENERATED, size_board);
 
-    // Selecinar um Puzzles gerado
+    // The game Puzzles to the User
+    std::vector < std::vector <char> > puzzles_user;
+    for(int i(0); i<size_board; ++i){
+
+    }
+
+
     // Imrimir 5 posições abertas aleatoriamente
     // Esperar entrada de linha x coluna
     // Imprimir status dos barcos a cada interação
