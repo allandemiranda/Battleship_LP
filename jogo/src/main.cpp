@@ -1,5 +1,5 @@
 /**
- * @brief 
+ * @brief Battleship Game LP 2018.2
  * 
  * @file main.cpp
  * @author ./allandemiranda ./JO5U3 
@@ -19,13 +19,11 @@
 #include "../include/manipulation_puzzles.h"
 
 /**
- * @brief 
+ * @brief The game
  * 
- * @param argc 
- * @param argv 
- * @return int 
+ * @return int EXIT_SUCCESS if finalized the game
  */
-int main(int argc, char const *argv[])
+int main(void)
 {
     // Welcome and size board side
     int size_board = welcome(UPPER_LIMIT_SIDE, LOW_LIMIT_SIDE); /* < Size of game board side */
@@ -36,9 +34,7 @@ int main(int argc, char const *argv[])
 
     // The game Puzzles to the User
     std::vector < std::vector <char> > puzzles_user;
-    for(int i(0); i<size_board; ++i){
 
-    }
 
 
     // Imrimir 5 posições abertas aleatoriamente
@@ -46,5 +42,5 @@ int main(int argc, char const *argv[])
     // Imprimir status dos barcos a cada interação
     // Ao preencher todo campo retornar se acertou ou não
 
-    return 0;
+    return EXIT_SUCCESS;
 }

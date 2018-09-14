@@ -2,7 +2,7 @@
  * @brief It contains all the manipulation functions of the Puzzle
  * 
  * @file manipulation_puzzles.h
- * @author your name
+ * @author ./allandemiranda ./JO5U3
  * @date 2018-09-14
  */
 
@@ -48,4 +48,8 @@ void game_board_response(std::vector < std::vector <char> > board, int const upp
             ++element;
         }
     }
+}
+
+void generator_board_user(std::vector < std::vector <char> > board, int const size, int const dificult){
+    
 }
