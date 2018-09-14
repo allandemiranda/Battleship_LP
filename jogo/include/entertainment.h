@@ -52,10 +52,10 @@ void dashboard_user_print(std::vector <char> board_final, std::vector <std::vect
     // Print ships left
     std::cout << std::endl;
     std::cout << "Do you have to add: " << std::endl;
-    std::cout << ship_one << " submarines (one square in size)" << std::endl;
-    std::cout << ship_two << " destroyers (two squares long)" << std::endl;
-    std::cout << ship_three << " cruisers (three squares long)" << std::endl;
-    std::cout << ship_four << " battleship (four squares long)" << std::endl;
+    std::cout << ship_one << " submarines (one square in size) -> $code 4" << std::endl;
+    std::cout << ship_two << " destroyers (two squares long) -> $code 3" << std::endl;
+    std::cout << ship_three << " cruisers (three squares long) -> $code 2" << std::endl;
+    std::cout << ship_four << " battleship (four squares long) -> $code 1" << std::endl;
      std::cout << std::endl;
     //Print the Puzzles
     int pixel(0); /* < Pixel from board_final orientation */
@@ -81,4 +81,57 @@ void dashboard_user_print(std::vector <char> board_final, std::vector <std::vect
         std::cout << number_ship << " ";
     }
     std::cout << std::endl;
+}
+
+/**
+ * @brief Function to show to the user the erro experience
+ * 
+ * @param code Code number erro
+ */
+void puzzles_erro_code(int const code){
+    // Everything is ok
+    if(code == 0){
+        // Debug erro
+        std::cout << std::endl;
+        std::cout << "Everything is ok!" << std::endl;
+        std::cout << std::endl;
+    }
+    // The limit gone
+    if(code == 1){
+        std::cout << std::endl;
+        std::cout << "The limit gone!" << std::endl;
+        std::cout << "Try another entry." << std::endl;
+        std::cout << std::endl;
+    }
+    // Have somethin in the way
+    if(code == 2){
+        std::cout << std::endl;
+        std::cout << "Have somethin in the way!" << std::endl;
+        std::cout << "Try another entry." << std::endl;
+        std::cout << std::endl;
+    }
+    // Have somethin in the way
+    if(code == 3){
+        std::cout << std::endl;
+        std::cout << "Erro in the horizontal (code = 1) or vertical (code = 2)!" << std::endl;
+        std::cout << "Try another entry." << std::endl;
+        std::cout << std::endl;
+    }
+}
+
+/**
+ * @brief Function to taype the code and coordinates
+ * 
+ * @param coordinates_code Vector with code ad coordinates
+ */
+void coordinates_input_print(int *coordinates_code){
+    std::cout << std::endl;
+    std::cout << "Type in the code ship [1-4]: " << std::endl;
+    std::cin >> coordinates_code[0];
+    std::cout << "Type in the Coordinates Line [0-side]: " << std::endl;
+    std::cin >> coordinates_code[1];
+    std::cout << "Type in the Coordinates Colunm [0-side]: " << std::endl;
+    std::cin >> coordinates_code[2];
+    std::cout << "Type in the Horizontal (code = 1) or Vertical (code = 2): " << std::endl;
+    std::cin >> coordinates_code[3];
 }

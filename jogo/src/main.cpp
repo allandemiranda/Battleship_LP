@@ -47,18 +47,44 @@ int main(void)
     int battleship_quantity = QUANTITY_OF_BATTLESHIP; // $code 1
 
     // WHILE(TRUE){}
+    while(true){
+        // Print puzzles
+        dashboard_user_print(final_board, puzzles_user, submarines_quantity, destroyers_quantity, cruisers_quantity, battleship_quantity);
+        // Start the parameters for coordinates
+        int coordinates[4];
+        coordinates_input_print(&coordinates[0]);
+        int code_erro = put_new_boat(puzzles_user, size_board, coordinates[0], coordinates[1], coordinates[2], coordinates[3]);
+        if(code_erro == 0){
+            // Remove the boat added
+            if(coordinates[0] == 1){
+                battleship_quantity--;                
+            } 
+            if(coordinates[0] == 2){
+                cruisers_quantity--;
+            }
+            if(coordinates[0] == 3){
+                destroyers_quantity--;
+            }
+            if(coordinates[0] == 4){
+                submarines_quantity--;
+            }
+            // Check if all boats have been added
+            if(battleship_quantity == 0){
+                if(cruisers_quantity == 0){
+                    if(destroyers_quantity == 0){
+                        if(submarines_quantity == 0){
+                            break;
+                        }
+                    }
+                }
+            }
+        } else { // If have erro
+            puzzles_erro_code(code_erro);
+        }        
+    }
 
-    // Print
-    dashboard_user_print(final_board, puzzles_user, submarines_quantity, destroyers_quantity, cruisers_quantity, battleship_quantity);
 
-    
-
-
-
-
-    // Esperar entrada de linha x coluna
-
-    // Ao preencher todo campo retornar se acertou ou não
+    std::cout <<  "Ao preencher todo campo retornar se acertou ou não" << std::endl;
 
     return EXIT_SUCCESS;
 }
