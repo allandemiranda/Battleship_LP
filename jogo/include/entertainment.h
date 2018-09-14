@@ -2,7 +2,7 @@
  * @brief User entertainment functions
  * 
  * @file entertainment.h
- * @author allandemiranda
+ * @author ./allandemiranda
  * @date 2018-09-14
  */
 
@@ -35,3 +35,4 @@ int welcome(const int upper_limit, const int low_limit){
     }
     return size;
 }
+
