@@ -54,7 +54,7 @@ std::vector <char> game_board_response(int const upper_rand, int const size){
  * 
  * @param board_final The Vector with final puzzles
  * @param board_user The Puzzles User
- * @param size Side * Side of Puzzles
+ * @param size Side of Puzzles
  * @param dificult How many pixels is to open
  */
 std::vector < std::vector <char> > generator_board_user(std::vector <char> board_final, int const size, int const dificult){
