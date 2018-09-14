@@ -13,6 +13,9 @@
 #define UPPER_LIMIT_SIDE 15 // Upper limit to the game board side
 #define LOW_LIMIT_SIDE 7 // Low limit to the game board side
 
+// Containers library
+#include <vector> // std::vector
+
 /**
  * @brief 
  * 
@@ -25,7 +28,8 @@ int main(int argc, char const *argv[])
     // Welcome and size board side
     int size_board = welcome(UPPER_LIMIT_SIDE, LOW_LIMIT_SIDE); /* < Size of game board side */
 
-
+    // Select Puzzles and start the game
+    std::
 
     // Selecinar um Puzzles gerado
     // Imrimir 5 posições abertas aleatoriamente
