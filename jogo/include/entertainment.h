@@ -21,7 +21,7 @@ int welcome(int const upper_limit, int const low_limit){
     int size(0); /* < Game board size */
     // Checking the input value to "size"
     while(true){
-        std::cout << "What game board size you want? (side)" << std::endl;
+        std::cout << "What game puzzle size you want? (side)" << std::endl;
         std::cin >> size;
         if((size <= upper_limit) and (size >= low_limit)){
             // The value is correct
@@ -34,6 +34,7 @@ int welcome(int const upper_limit, int const low_limit){
             std::cout << "Please, enter a number that does not exceed the limits." << std::endl;
         }
     }
+    std::cout << std::endl;
     return size;
 }
 
@@ -49,11 +50,13 @@ int welcome(int const upper_limit, int const low_limit){
  */
 void dashboard_user_print(std::vector <char> board_final, std::vector <std::vector <char>> board_user, int const ship_one, int const ship_two, int const ship_three, int const ship_four){
     // Print ships left
+    std::cout << std::endl;
     std::cout << "Do you have to add: " << std::endl;
     std::cout << ship_one << " submarines (one square in size)" << std::endl;
     std::cout << ship_two << " destroyers (two squares long)" << std::endl;
     std::cout << ship_three << " cruisers (three squares long)" << std::endl;
     std::cout << ship_four << " battleship (four squares long)" << std::endl;
+     std::cout << std::endl;
     //Print the Puzzles
     int pixel(0); /* < Pixel from board_final orientation */
     for(int i(0); i<board_user.size(); ++i){ // Line
