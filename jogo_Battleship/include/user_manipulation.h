@@ -496,6 +496,17 @@ int put_new_boat(std::vector<std::vector <char>> & puzzle, int const size, int c
                 }
             }    
         }
+        /**
+         * @brief Colocar para imprimir aqui o barco
+         * 
+         */
+    }
+    // To the yyy (four yyy long) -> $code 2
+    if(ship == 2){
+        /**
+         * @brief continuar aqui os outros barcos
+         * 
+         */
     }
     return 0; //  Everything is ok
 }
