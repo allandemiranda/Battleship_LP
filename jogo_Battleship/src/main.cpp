@@ -90,7 +90,7 @@ int main(void)
     }
 
     // Check if it's the same as the original
-    if(cheking_answer(puzzles_user, final_board)){
+    if(cheking_answer(puzzles_user, final_board)){ // Congratulations
         std::cout << std::endl;
         std::cout << "-----------" << std::endl;
         std::cout << std::endl;
@@ -98,7 +98,7 @@ int main(void)
         std::cout <<  "You won the game!" << std::endl;
         std::cout <<  "bye" << std::endl;
         std::cout << std::endl;
-    } else  {
+    } else  { // You lost the game
         std::cout << std::endl;
         std::cout << "-----------" << std::endl;
         std::cout << std::endl;

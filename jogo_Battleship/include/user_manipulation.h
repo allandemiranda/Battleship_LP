@@ -163,7 +163,7 @@ int put_new_boat(std::vector<std::vector <char>> & puzzle, int const size, int c
                             return 2; // Erro code 2: Have something in the way
                         }
                     } else {
-                        return 2; // Barco não encontrado
+                        return 4; // Erro code 4: Ship code not found
                     }
                 }
             }

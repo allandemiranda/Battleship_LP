@@ -25,7 +25,7 @@
  */
 std::vector <char> game_board_response(int const upper_rand, int const size){
     std::vector <char> board; /* < Vector to create the puzzels */
-    //std::srand(std::time(nullptr)); // Use current time as seed for random generator
+    //std::srand(std::time(nullptr)); // Use current time as seed for random generator // Desativado
     int random_number = std::rand()/((RAND_MAX + 1u)/(upper_rand - 1)); /* < Random number to select the puzzles */
     // Add the board to the vector
     /**
@@ -62,7 +62,7 @@ std::vector < std::vector <char> > generator_board_user(std::vector <char> board
     // Preparing pixel that will be visible
     int pixel_open[dificult];
     for(int i(0); i<dificult; ++i){
-        //std::srand(std::time(nullptr)); // Use current time as seed for random generator
+        //std::srand(std::time(nullptr)); // Use current time as seed for random generator // Desativado
         int random_number = std::rand()/((RAND_MAX + 1u)/((size * size) - 1)); /* < Random number to select the pixel that will be visible */
         pixel_open[i] = random_number;
     }

@@ -9,6 +9,9 @@
 // Input output library
 #include <iostream> // several standard stream objects 
 
+// Containers library
+#include <vector> // std::vector container
+
 /**
  * @brief Welcome function and initial interaction
  * 
@@ -110,10 +113,17 @@ void puzzles_erro_code(int const code){
         std::cout << "Try another entry." << std::endl;
         std::cout << std::endl;
     }
-    // Have somethin in the way
+    // Erro in the horizontal or vertical code
     if(code == 3){
         std::cout << std::endl;
         std::cout << "Erro in the horizontal (code = 1) or vertical (code = 2)!" << std::endl;
+        std::cout << "Try another entry." << std::endl;
+        std::cout << std::endl;
+    }
+    // Erro in the ship code not found
+    if(code == 4){
+        std::cout << std::endl;
+        std::cout << "Ship code not found!" << std::endl;
         std::cout << "Try another entry." << std::endl;
         std::cout << std::endl;
     }
