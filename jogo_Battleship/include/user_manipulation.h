@@ -31,6 +31,11 @@ int put_new_boat(std::vector<std::vector <char>> & puzzle, int const size, int c
         return 3; // Erro in the horizontal (code = 1) or vertical (code = 2)
     }
 
+    // Check the code ship
+    if((ship =! 1) and (ship =! 2) and (ship =! 3) and (ship =! 4)){
+        return 4; // Erro code 4: Ship code not found
+    }
+
     // Check the area around the ship 
     int size_of_ship(0);  /* < Size of the ship */
 
