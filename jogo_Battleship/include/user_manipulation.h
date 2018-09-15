@@ -32,7 +32,7 @@ int put_new_boat(std::vector<std::vector <char>> & puzzle, int const size, int c
     }
 
     // Check the code ship
-    if((ship =! 1) and (ship =! 2) and (ship =! 3) and (ship =! 4)){
+    if((ship != 1) and (ship != 2) and (ship != 3) and (ship != 4)){
         return 4; // Erro code 4: Ship code not found
     }
 
