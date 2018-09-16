@@ -8,6 +8,7 @@
 
 // Input output library
 #include <fstream> // std::basic_fstream, std::basic_ifstream, std::basic_ofstream class templates and several typedefs 
+#include <string> // The class template basic_string stores and manipulates sequences of char-like objects
 
 // Containers library
 #include <vector> // std::vector container 
@@ -15,6 +16,63 @@
 // C compatibility headers
 #include <cstdlib> // This header provides miscellaneous utilities
 #include <ctime> // C-style time/date utilites
+
+/**
+ * @brief Function to change characters os puzzles
+ * 
+ * @param name The character
+ * @return char The new character
+ */
+char change_characters(char const name){
+    if(name != '0'){
+        if(name == '1'){
+            return '+';
+        }
+        if(name == '2'){
+            return '<';
+        }
+        if(name == '3'){
+            return '>';
+        }
+        if(name == '4'){
+            return '^';
+        }
+        if(name == '5'){
+            return 'v';
+        }
+        if(name == '6'){
+            return '<';
+        }
+        if(name == '7'){
+            return '>';
+        }
+        if(name == '8'){
+            return '^';
+        }
+        if(name == '9'){
+            return 'v';
+        }
+        if(name == 'A'){
+            return '+';
+        }
+        if(name == 'B'){
+            return '<';
+        }
+        if(name == 'C'){
+            return '>';
+        }
+        if(name == 'D'){
+            return '^';
+        }
+        if(name == 'E'){
+            return 'v';
+        }
+        if(name == 'F'){
+            return '+';
+        }
+    }
+    return '0'; // Whater
+}
 
 /**
  * @brief Function for picking up a game board valid
@@ -28,17 +86,42 @@ std::vector <char> game_board_response(int const upper_rand, int const size){
     //std::srand(std::time(nullptr)); // Use current time as seed for random generator // Desativado
     int random_number = std::rand()/((RAND_MAX + 1u)/(upper_rand - 1)); /* < Random number to select the puzzles */
     // Add the board to the vector
-    /**
-     * 
-     * Aqui coloque o complemento da fubnção para caso haja mais tamanhos de puzzles disponíveis
-     * Use a contante int size para saber que arquivo de tamanhod e puzzles abrir
-     * 
-     */
-    std::ifstream puzzles("../puzzles/puzzles.txt"); /* < Open tem puzzles doc */
+    std::string name_arq;
+    if(size == 7){
+        name_arq = "../puzzles/100-puzzles-7x7.txt";
+    } 
+    if(size == 8){
+        name_arq = "../puzzles/100-puzzles-8x8.txt";
+    }    
+    if(size == 9){
+        name_arq = "../puzzles/100-puzzles-9x9.txt";
+    }   
+    if(size == 10){
+        name_arq = "../puzzles/100-puzzles-10x10.txt";
+    }  
+    if(size == 11){
+        name_arq = "../puzzles/100-puzzles-11x11.txt";
+    }  
+    if(size == 12){
+        name_arq = "../puzzles/100-puzzles-12x12.txt";
+    }  
+    if(size == 13){
+        name_arq = "../puzzles/100-puzzles-13x13.txt";
+    }  
+    if(size == 14){
+        name_arq = "../puzzles/100-puzzles-14x14.txt";
+    }  
+    if(size == 15){
+        name_arq = "../puzzles/100-puzzles-15x15.txt";
+    }  
+    std::ifstream puzzles(name_arq); /* < Open tem puzzles doc */
     std::vector <char> temp; /* < Temp vector to swap to the real board */
     char val; /* < Valuer to copy */
     while (puzzles >> val) {
-		temp.push_back(val);
+        // Change of characters
+        char new_c = change_characters(val);
+        // Save the new characters
+		temp.push_back(new_c);
 	}
 	puzzles.close(); // Close de doc puzzçes.txt
     // Swaping to board vector

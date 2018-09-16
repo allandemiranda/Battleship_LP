@@ -9,8 +9,8 @@
 // Define
 #define UPPER_LIMIT_SIDE 15 // Upper limit to the game board side
 #define LOW_LIMIT_SIDE 7 // Low limit to the game board side
-#define MAX_OF_PUZZLES_GENERATED 3 // Maximum of Puzzles generated per file
-#define DIFICULT_PIXELS 20 // How many pixels is to open
+#define MAX_OF_PUZZLES_GENERATED 2 // Maximum of Puzzles generated per file   @@@@@@
+#define DIFICULT_PIXELS 1 // How many pixels is to open @@@@@@
 #define QUANTITY_OF_SUBMARINES 4 // Submarines (one square in size) -> $code 4
 #define QUANTITY_OF_DESTROYERS 3 // Destroyers (two squares long) -> $code 3
 #define QUANTITY_OF_CRUISERS 2 // Cruisers (three squares long) -> $code 2
