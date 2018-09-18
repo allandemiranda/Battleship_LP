@@ -3,8 +3,8 @@
 using namespace gt;
 
 /// ( path parte 1 ) criando variáveis necessárias para o path do arquivo de texto onde serão escritos os puzzles
-std::string path1 = "../jogo_Battleship/puzzles/";
-std::string path2 = "-puzzles-";
+std::string path1 = "./puzzles/";
+std::string path2 = "-puzzle(s)-";
 char x = 'x';
 std::string lote;
 std::string lin;
@@ -111,7 +111,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                 if(!gt::barcoPos) /// vertical
                 {
                     /// testando se há possibilidade de colocar o barco, e se encaixa na matrix
-                    if( i+2 < l && a[i-1][j] == '0' && a[i+1][j] == '0' && a[i+2][j] == '0' && a[i+3][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j+1] == '0' && a[i+1][j-1] == '0' && a[i+2][j+1] == '0' && a[i+2][j-1] == '0' )
+                    if( i+2 < l && a[i-1][j] == '0' && a[i+1][j] == '0' && a[i+2][j] == '0' && a[i+3][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j+1] == '0' && a[i+1][j-1] == '0' && a[i+2][j+1] == '0' && a[i+2][j-1] == '0' && a[i-1][j-1] == '0' && a[i+3][j-1] == '0' && a[i-1][j+1] == '0' && a[i+3][j+1] == '0' )
                     {
                         a[i][j] = '8';
                         a[i+1][j] = 'A';
@@ -122,7 +122,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                 else if(gt::barcoPos) /// horizontal
                 {
                     /// testando se há possibilidade de colocar o barco, e se encaixa na matrix
-                    if( j+2 < c && a[i-1][j] == '0' && a[i-1][j+1] == '0' && a[i-1][j+2] == '0' && a[i+1][j] == '0' && a[i+1][j+1] == '0' && a[i+1][j+2] == '0' && a[i][j-1] == '0' && a[i][j+1] == '0' && a[i][j+2] == '0' && a[i][j+3] == '0' )
+                    if( j+2 < c && a[i-1][j] == '0' && a[i-1][j+1] == '0' && a[i-1][j+2] == '0' && a[i+1][j] == '0' && a[i+1][j+1] == '0' && a[i+1][j+2] == '0' && a[i][j-1] == '0' && a[i][j+1] == '0' && a[i][j+2] == '0' && a[i][j+3] == '0' && a[i-1][j-1] == '0' && a[i+1][j-1] == '0' && a[i-1][j+3] == '0' && a[i+1][j+3] == '0' )
                     {
                         a[i][j] = '6';
                         a[i][j+1] = 'A';
@@ -132,12 +132,13 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                 }
             }    
         }
-
+        /// contador de teste para ver se deu certo encaixar os destroyers e submarines
+        // unsigned short count(0);
         /// DESTROYER
         while( gt::barcoQtd[2] < MAX_DESTROYERS )
         {
-            /// se o puzzle tiver as linhas e colunas maiores que 7 essa será a estratégia adotada
-            if( gt::l > 7 && gt::c > 7)
+            /// se o puzzle tiver as linhas e colunas maiores que 8 essa será a estratégia adotada
+            if( gt::l > 8 && gt::c > 8 )
             {
                 i = distribution(rng);
                 j = distribution2(rng);
@@ -148,7 +149,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                     if(!gt::barcoPos) /// vertical
                     {
                         /// testando se há possibilidade de colocar o barco, e se encaixa na matrix
-                        if( i+1 < l && a[i-1][j] == '0' && a[i+2][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j+1] == '0' && a[i+1][j-1] == '0' )
+                        if( i+1 < l && a[i-1][j] == '0' && a[i+2][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j+1] == '0' && a[i+1][j-1] == '0' && a[i-1][j-1] == '0' && a[i+2][j-1] == '0' && a[i-1][j+1] == '0' && a[i+2][j+1] == '0' )
                         {
                             a[i][j] = '4';
                             a[i+1][j] = '5';
@@ -158,7 +159,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                     else if(gt::barcoPos) /// horizontal
                     {
                         /// testando se há possibilidade de colocar o barco, e se encaixa na matrix
-                        if( j+1 < c && a[i-1][j] == '0' && a[i-1][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j] == '0' && a[i+1][j+1] == '0' && a[i][j+1] == '0' && a[i][j+2] == '0' )
+                        if( j+1 < c && a[i-1][j] == '0' && a[i-1][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j] == '0' && a[i+1][j+1] == '0' && a[i][j+1] == '0' && a[i][j+2] == '0' && a[i-1][j-1] == '0' && a[i+1][j-1] == '0' && a[i-1][j+2] == '0' && a[i+1][j+2] == '0' )
                         {
                             a[i][j] = '2';
                             a[i][j+1] = '3';
@@ -166,8 +167,9 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                         }
                     }
                 }
+                //++count;
             }
-            /// se o puzzle tiver as linhas ou colunas iguais a 7 será usada essa estratégia
+            /// se o puzzle tiver as linhas ou colunas menores ou iguais a 8 será usada essa estratégia
             else
             for( unsigned short i(1); i < gt::l+1; ++i )
             {
@@ -180,7 +182,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                         if(!gt::barcoPos) /// vertical
                         {
                             /// testando se há possibilidade de colocar o barco, e se encaixa na matrix
-                            if( i+1 < l && a[i-1][j] == '0' && a[i+2][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j+1] == '0' && a[i+1][j-1] == '0' )
+                            if( i+1 < l && a[i-1][j] == '0' && a[i+2][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j+1] == '0' && a[i+1][j-1] == '0' && a[i-1][j-1] == '0' && a[i+2][j-1] == '0' && a[i-1][j+1] == '0' && a[i+2][j+1] == '0' )
                             {
                                 a[i][j] = '4';
                                 a[i+1][j] = '5';
@@ -190,7 +192,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                         else if(gt::barcoPos) /// horizontal
                         {
                             /// testando se há possibilidade de colocar o barco, e se encaixa na matrix
-                            if( j+1 < c && a[i-1][j] == '0' && a[i-1][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j] == '0' && a[i+1][j+1] == '0' && a[i][j+1] == '0' && a[i][j+2] == '0' )
+                            if( j+1 < c && a[i-1][j] == '0' && a[i-1][j+1] == '0' && a[i][j-1] == '0' && a[i+1][j] == '0' && a[i+1][j+1] == '0' && a[i][j+1] == '0' && a[i][j+2] == '0' && a[i-1][j-1] == '0' && a[i+1][j-1] == '0' && a[i-1][j+2] == '0' && a[i+1][j+2] == '0' )
                             {
                                 a[i][j] = '2';
                                 a[i][j+1] = '3';
@@ -201,7 +203,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                 }
             }
             /// se não foi possível encaixar os barcos então finaliza o laço
-            if( gt::barcoQtd[2] < MAX_DESTROYERS && (gt::l == 7 || gt::c == 7) )
+            if( gt::barcoQtd[2] < MAX_DESTROYERS && (gt::l < 9 || gt::c < 9 ) )
             {
                 break;
             }    
@@ -216,8 +218,8 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
         /// SUBMARINE
         while( gt::barcoQtd[3] < MAX_SUBMARINES )
         {
-            /// se o puzzle tiver as linhas e colunas maiores que 7 essa será a estratégia adotada
-            if( gt::l > 7 && gt::c > 7 )
+            /// se o puzzle tiver as linhas e colunas maiores que 9 essa será a estratégia adotada
+            if( gt::l > 9 && gt::c > 9 )
             {
                 i = distribution(rng);
                 j = distribution2(rng);
@@ -225,14 +227,14 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                 if(a[i][j] == '0')
                 {
                     /// testando se há possibilidade de colocar o barco, e se encaixa na matrix
-                    if( a[i-1][j] == '0' && a[i+1][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' )
+                    if( a[i-1][j] == '0' && a[i+1][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' && a[i-1][j-1] == '0' && a[i+1][j-1] == '0' && a[i-1][j+1] == '0' && a[i+1][j+1] == '0' )
                     {
                         a[i][j] = '1';
                         gt::barcoQtd[3]++;
                     }
                 }
             }
-            /// se o puzzle tiver as linhas ou colunas iguais a 7 será usada essa estratégia usada
+            /// se o puzzle tiver as linhas ou colunas menores ou iguais a 9 será usada essa estratégia usada
             else 
             for( unsigned short i(1); i < gt::l+1; ++i )
             {
@@ -241,7 +243,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                     if(a[i][j] == '0' && barcoQtd[3] < MAX_SUBMARINES)
                     {
                         /// testando se há possibilidade de colocar o barco, e se encaixa na matrix
-                        if( a[i-1][j] == '0' && a[i+1][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' )
+                        if( a[i-1][j] == '0' && a[i+1][j] == '0' && a[i][j+1] == '0' && a[i][j-1] == '0' && a[i-1][j-1] == '0' && a[i+1][j-1] == '0' && a[i-1][j+1] == '0' && a[i+1][j+1] == '0' )
                         {
                             a[i][j] = '1';
                             gt::barcoQtd[3]++;
@@ -250,7 +252,7 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                 }
             }
             /// se não foi possível encaixar os barcos então encerra o laço
-            if( gt::barcoQtd[3] < MAX_SUBMARINES && (gt::l == 7 || gt::c == 7) )
+            if( gt::barcoQtd[3] < MAX_SUBMARINES && (gt::l < 10 || gt::c < 10 ) )
             {
                 break;
             }
