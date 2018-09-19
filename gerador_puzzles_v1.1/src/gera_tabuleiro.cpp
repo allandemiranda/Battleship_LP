@@ -3,7 +3,7 @@
 using namespace gt;
 
 /// ( path parte 1 ) criando variáveis necessárias para o path do arquivo de texto onde serão escritos os puzzles
-std::string path1 = "./puzzles/";
+std::string path1 = "../jogo_Battleship/puzzles/";
 std::string path2 = "-puzzle(s)-";
 char x = 'x';
 std::string lote;
