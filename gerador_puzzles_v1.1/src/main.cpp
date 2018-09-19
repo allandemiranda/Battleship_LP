@@ -62,10 +62,10 @@ int main ( int argc, char **argv )
     }
 
     /// prepara a geração e o nome do arquivo de puzzle que tem o formato = lote-puzzles-linhasXcolunas.txt -> ex: 100-puzzles-10x10.txt 
-    gt::prepareWriter(gt::n_puzzles, gt::l, gt::c);
+    gt::prepareWriter( gt::n_puzzles, gt::l, gt::c );
 
     /// gera, escreve os puzzles no arquivo .txt, e exibe no console os puzzles
-    gt::puzzleBuffer(a);
+    gt::puzzleBuffer( a );
 
     return 0;
 }

@@ -29,10 +29,13 @@ namespace gt
     std::vector<unsigned short> barcoQtd(4); 
 
     /// prepara o fluxo de escrita no arquivo de puzzles
-    void prepareWriter( unsigned short n, unsigned short a, unsigned short b);
+    /// \param n_p é o número de puzzles
+    /// \param n_l é o número de linhas
+    /// \param n_c é o número de colunas  
+    void prepareWriter(const unsigned short &n_p, const unsigned short &n_l, const unsigned short &n_c);
 
     /// escrever puzzle no arquivo de puzzles
-    void writePuzzle(const std::vector < std::vector <char> > &a);
+    void writePuzzle(const std::vector < std::vector <char> > &a );
 
     /// exibe os puzzles no console
     void printPuzzle(const std::vector < std::vector <char> > &a); 

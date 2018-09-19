@@ -16,13 +16,13 @@ std::string finalPath;
 std::ofstream writer;
 
 /// ( Path parte 2 e fluxo de saída ) preparando a o fluxo de saída e recebendo do usuário os dados necessários para gerar o path no formato lote-puzzles-linhasxcolunas.txt -> ex: 100-puzzles-10x10.txt
-void gt::prepareWriter( unsigned short n, unsigned short a, unsigned short b)
+void gt::prepareWriter(const unsigned short &n_p, const unsigned short &n_l, const unsigned short &n_c)
 {
-    lote = std::to_string(n);
-    lin = std::to_string(a);
-    col = std::to_string(b);
+    lote = std::to_string(n_p);
+    lin = std::to_string(n_l);
+    col = std::to_string(n_c);
     finalPath = path1+lote+path2+lin+x+col+path3;
-    writer.open( finalPath );
+    writer.open(finalPath);
 } 
 
 void gt::writePuzzle( const std::vector < std::vector <char> > &a )
@@ -34,8 +34,9 @@ void gt::writePuzzle( const std::vector < std::vector <char> > &a )
             writer<< a[i][j];    
         }
         writer.put('\n');
-    }
-    /// para não colocar um espaço entre cada puzzle comente a instrução abaixo
+    } 
+    /// este espaço serve apenas para melhor visualizar os puzzles no arquivo .txt
+    /// para uma melhor performance comente a instrução abaixo
     writer.put('\n');
 } 
 
@@ -133,7 +134,6 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
             }    
         }
         /// contador de teste para ver se deu certo encaixar os destroyers e submarines
-        // unsigned short count(0);
         /// DESTROYER
         while( gt::barcoQtd[2] < MAX_DESTROYERS )
         {
@@ -167,7 +167,6 @@ void gt::puzzleBuffer(std::vector < std::vector <char> > &a)
                         }
                     }
                 }
-                //++count;
             }
             /// se o puzzle tiver as linhas ou colunas menores ou iguais a 8 será usada essa estratégia
             else
