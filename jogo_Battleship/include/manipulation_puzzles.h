@@ -88,31 +88,31 @@ std::vector <char> game_board_response(int const upper_rand, int const size){
     // Add the board to the vector
     std::string name_arq;
     if(size == 7){
-        name_arq = "../puzzles/100-puzzles-7x7.txt";
+        name_arq = "../puzzles/100-puzzle(s)-7x7.txt";
     } 
     if(size == 8){
-        name_arq = "../puzzles/100-puzzles-8x8.txt";
+        name_arq = "../puzzles/100-puzzle(s)-8x8.txt";
     }    
     if(size == 9){
-        name_arq = "../puzzles/100-puzzles-9x9.txt";
+        name_arq = "../puzzles/100-puzzle(s)-9x9.txt";
     }   
     if(size == 10){
-        name_arq = "../puzzles/100-puzzles-10x10.txt";
+        name_arq = "../puzzles/100-puzzle(s)-10x10.txt";
     }  
     if(size == 11){
-        name_arq = "../puzzles/100-puzzles-11x11.txt";
+        name_arq = "../puzzles/100-puzzle(s)-11x11.txt";
     }  
     if(size == 12){
-        name_arq = "../puzzles/100-puzzles-12x12.txt";
+        name_arq = "../puzzles/100-puzzle(s)-12x12.txt";
     }  
     if(size == 13){
-        name_arq = "../puzzles/100-puzzles-13x13.txt";
+        name_arq = "../puzzles/100-puzzle(s)-13x13.txt";
     }  
     if(size == 14){
-        name_arq = "../puzzles/100-puzzles-14x14.txt";
+        name_arq = "../puzzles/100-puzzle(s)-14x14.txt";
     }  
     if(size == 15){
-        name_arq = "../puzzles/100-puzzles-15x15.txt";
+        name_arq = "../puzzles/100-puzzle(s)-15x15.txt";
     }  
     std::ifstream puzzles(name_arq); /* < Open tem puzzles doc */
     std::vector <char> temp; /* < Temp vector to swap to the real board */
